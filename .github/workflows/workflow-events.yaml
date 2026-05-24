@@ -1,6 +1,12 @@
 name: Workflow events
 
-on: push
+on:
+  push:
+  schedule:
+    - cron: "*/5 * * * *" 
+  workflow_dispatch: 
+  pull_request:
+    
 
 jobs:
   printing-events:
