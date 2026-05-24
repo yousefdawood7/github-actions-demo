@@ -1,0 +1,17 @@
+name: Workflow Runners
+on: [workflow_dispatch, pull_request]
+
+
+jobs:
+    show-os:
+        runs-on: windows-latest
+        steps: 
+            - name: Windows step
+              shell: bash
+              run: echo Hello from Windows operating system   
+
+            - name: Macos step
+              run: echo Hello from Mac operating system   
+              
+            - name: Linux step
+              run: echo Hello from Ubuntu Linux Distribution   
