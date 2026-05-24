@@ -9,3 +9,6 @@ jobs:
             - name: Windows step
               shell: bash
               run: echo Hello from Windows operating system   
+              
+            - name: Macos step
+              run: echo Hello from Mac operating system   
