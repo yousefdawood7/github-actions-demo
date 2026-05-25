@@ -1,8 +1,6 @@
 name: Workflow events
 
 on:
-  schedule:
-    - cron: "*/5 * * * *" 
   workflow_dispatch: 
   pull_request:
     
