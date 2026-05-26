@@ -8,10 +8,10 @@ jobs:
         steps: 
             - name: Windows step
               shell: bash
-              run: echo Hello from Windows operating system   
+              run: echo Hello from Windows 
 
             - name: Macos step
-              run: echo Hello from Mac operating system   
+              run: echo Hello from MacOS 
               
             - name: Linux step
-              run: echo Hello from Ubuntu Linux Distribution   
+              run: echo Hello from Ubuntu Linux
