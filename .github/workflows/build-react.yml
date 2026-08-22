@@ -1,0 +1,14 @@
+name: Build React
+
+on:
+    push: 
+    workflow_dispatch: 
+
+
+jobs:
+    build-react:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Check PWD
+              run: pwd
+
