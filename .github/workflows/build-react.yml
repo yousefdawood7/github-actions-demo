@@ -4,11 +4,29 @@ on:
     push: 
     workflow_dispatch: 
 
-
 jobs:
-    build-react:
+    checkout-job:
         runs-on: ubuntu-22.04
         steps:
-            - name: Check PWD
+            - name: checkout repo
+              uses: actions/checkout@latest
+            - name: Printing folder structure
               run: ls
+    build-react-app:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@latest
 
+            - name: Setup Node.js environment
+              uses: actions/setup-node@latest
+
+            - name: build react app
+              run: |
+                pnpm i
+                pnpm approve-builds --all
+                pnpm build
+              
+              
+            
+                  
