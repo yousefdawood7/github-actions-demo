@@ -10,8 +10,14 @@ jobs:
 
     windows-echo: 
         runs-on: windows-2025
+        
         steps: 
-            - run: echo "Hello from windows"
+            - name: "Windows"
+              run: echo 'HWEAST'
+              shell: bash
+            - name: 'asdasda'
+              shell: bash
+              run: echo $RUNNER_OR
 
     mac-echo: 
         runs-on: macos-26
