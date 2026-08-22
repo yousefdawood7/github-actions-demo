@@ -17,7 +17,7 @@ jobs:
               shell: bash
             - name: 'asdasda'
               shell: bash
-              run: echo $RUNNER_OR
+              run: echo $RUNNER_OS
 
     mac-echo: 
         runs-on: macos-26
