@@ -1,0 +1,19 @@
+on: 
+    push:
+    workflow_dispatch:
+
+jobs: 
+    ubuntu-echo:
+        runs-on: ubuntu-22.04
+        steps:
+            - run: echo "Hello from ubuntu"
+
+    windows-echo: 
+        runs-on: windows-2025
+        steps: 
+            - run: echo "Hello from windows"
+
+    mac-echo: 
+        runs-on: macos-26
+        steps: 
+            - run: echo "Hello from mac"
