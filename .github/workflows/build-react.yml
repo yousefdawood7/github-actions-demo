@@ -9,17 +9,17 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - name: checkout repo
-              uses: actions/checkout@latest
+              uses: actions/checkout@v7.0.1
             - name: Printing folder structure
               run: ls
     build-react-app:
         runs-on: ubuntu-22.04
         steps:
             - name: checkout repo
-              uses: actions/checkout@latest
+              uses: actions/checkout@v7.0.1
 
             - name: Setup Node.js environment
-              uses: actions/setup-node@latest
+              uses: actions/setup-node@v7.0.0
 
             - name: build react app
               run: |
