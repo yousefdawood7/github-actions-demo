@@ -1,0 +1,9 @@
+{
+  "appId": "com.hishamdawood.cisco.directory",
+  "appName": "دليل أرقام السيسكو - البريد المصري",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": false
+  }
+}
