@@ -14,5 +14,5 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - name: printing event types
-              run: echo Base branch is ${{ github.base_ref }} and event name ${{ github.event_name }} ==> ${{ github.ref_name }}
+              run: echo Base branch is ${{ github.base_ref }} and event name ${{ github.event_name }} ${{ github.event.action }}
 
