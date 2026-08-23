@@ -9,4 +9,4 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - name: print close
-              run: echo ${{ github.ref_name }} is ${{github.event.action}}
+              run: echo ${{ github.head_ref }} is ${{github.event.action}}
