@@ -24,7 +24,7 @@ jobs:
       - name: Failing Step
         run: exit(1)
       - name: I Will be Skipped
-        if: success()
+        if: '!success()'
         run: echo SKIPPED
       - name: I Will be Runned
         if: failure()
