@@ -46,10 +46,10 @@ jobs:
         steps:
             - name: Variable ENVs
               env: 
-                APP_TOP_SECRET: ${{ secrets.APP_SECRET }}
+                APP_SECRET: 'YOUSEF DAWOOD'
               run: |
                 echo ${{ secrets.APP_SECRET }}
-                echo ${{ env.APP_TOP_SECRET }}
+                echo ${{ env.APP_SECRET }}
              
 
 
