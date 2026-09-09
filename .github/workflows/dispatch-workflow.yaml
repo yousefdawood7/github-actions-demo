@@ -21,13 +21,10 @@ jobs:
   echo1:
     runs-on: ubuntu-22.04
     steps:
-      - name: Failing Step
-        run: sleep 20
-
       - name: I Will be Always
         if: always()
         run: |
-          echo always
+          echo ${{ toJSON(github) }}
           sleep 10
         
         
