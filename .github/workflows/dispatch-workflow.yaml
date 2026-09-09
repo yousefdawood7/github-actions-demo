@@ -22,13 +22,18 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Failing Step
-        run: exit(1)
-      - name: I Will be Skipped
-        if: '!success()'
-        run: echo SKIPPED
-      - name: I Will be Runned
-        if: failure()
-        run: echo SKIPPED
+        run: sleep 20
+
+      - name: I Will be Cancelled
+        if: '!cancelled()'
+        run: echo '!Cancelled'
+
+      - name: I Will be Always
+        if: always()
+        run: echo always
+      
+      
+      
 
 
 
