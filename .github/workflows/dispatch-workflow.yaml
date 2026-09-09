@@ -47,7 +47,7 @@ jobs:
             - name: Variable ENVs
               run: |
                 echo FIRST:  $MY_JOB_VAR
-                echo SECOND: $MY_OVERWRITTER_VAR
+                echo SECOND: $MY_OVERWRITTEN_VAR
                 echo THIRD: ${{ env.MY_WORKFLOW_VAR }}
 
 
