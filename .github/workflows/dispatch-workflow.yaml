@@ -3,7 +3,19 @@ run-name: Demonstrate Dispatch in CI/CD
 
 on: 
     workflow_dispatch: 
+        inputs:
+          debug:
+            description: is this production ?!
+            type: boolean
+            default: false
+            required: true
 
+
+env: 
+    MY_WORKFLOW_VAR: workflow
+    MY_OVERWRITTEN_VAR: workflow
+
+    
 
 jobs:
     echo-data:
@@ -21,6 +33,21 @@ jobs:
                 echo "Run number: ${{ github.run_number }}"
             - name: print variable
               run: echo ${{ vars.MY_APP }}
-
+    echo-dispatch:
+        runs-on: ubuntu-22.04
+        steps:
+          - name: Dispatch Context
+            run: echo ${{ inputs.debug }}
+    echo-vars:
+        env:
+          MY_JOB_VAR: 'job'
+          MY_OVERWRITTEN_VAR: job
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Variable ENVs
+              run: |
+                echo FIRST:  $MY_JOB_VAR
+                echo SECOND: $MY_OVERWRITTER_VAR
+                echo THIRD: ${{ env.MY_WORKFLOW_VAR }}
 
 
