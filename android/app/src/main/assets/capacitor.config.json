@@ -1,9 +1,0 @@
-{
-	"appId": "com.hishamdawood.cisco.directory",
-	"appName": "دليل تليفونات السيسكو",
-	"webDir": "www",
-	"bundledWebRuntime": false,
-	"android": {
-		"allowMixedContent": false
-	}
-}
