@@ -45,9 +45,11 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - name: Variable ENVs
+              env: 
+                APP_TOP_SECRET: ${{ secrets.APP_SECRET }}
               run: |
-                echo FIRST:  $MY_JOB_VAR
-                echo SECOND: $MY_OVERWRITTEN_VAR
-                echo THIRD: ${{ env.MY_WORKFLOW_VAR }}
+                echo ${{ secrets.APP_SECRET }}
+                echo ${{ env.APP_TOP_SECRET }}
+             
 
 
