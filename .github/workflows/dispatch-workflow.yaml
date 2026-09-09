@@ -1,0 +1,26 @@
+name: Demonstrate Dispatch Workflow
+run-name: Demonstrate Dispatch in CI/CD
+
+on: 
+    workflow_dispatch: 
+
+
+jobs:
+    echo-data:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: echo Github Context
+              run: |
+                echo "Event name: ${{ github.event_name }}"
+                echo "Ref: ${{ github.ref }}"
+                echo "Ref Name: ${{ github.ref_name }}"
+                echo "SHA: ${{ github.sha }}"
+                echo "Actor: ${{ github.repository_owner }}"
+                echo "Workflow: ${{ github.workflow }}"
+                echo "Run ID: ${{ github.run_id }}"
+                echo "Run number: ${{ github.run_number }}"
+            - name: print variable
+              run: echo ${{ vars.MY_APP }}
+
+
+
