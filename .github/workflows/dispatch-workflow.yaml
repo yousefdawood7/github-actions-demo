@@ -29,9 +29,6 @@ jobs:
       - name: I Will be Runned
         if: failure()
         run: echo SKIPPED
-      - name: not cancelled
-        if: !cancelled()
-        run: echo 'AYOOOOOOOOOOOOOOOOOOOO'  
 
 
 
