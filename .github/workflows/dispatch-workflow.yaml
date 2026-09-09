@@ -24,15 +24,17 @@ jobs:
       - name: Failing Step
         run: sleep 20
 
-      - name: I Will be Cancelled
-        if: '!cancelled()'
-        run: echo '!Cancelled'
-
       - name: I Will be Always
         if: always()
-        run: echo always
-      
-      
+        run: |
+          echo always
+          sleep 10
+        
+        
+      - name: I Will be Cancelled
+        if: ${{ !cancelled() }}
+        run: echo '!Cancelled'
+
       
 
 
