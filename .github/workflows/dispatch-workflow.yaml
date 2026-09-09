@@ -24,7 +24,7 @@ jobs:
       - name: I Will be Always
         if: always()
         run: |
-          echo ${{ toJSON(github) }}
+          echo '${{ toJSON(github.event) }}'
           sleep 10
         
         
