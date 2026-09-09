@@ -18,38 +18,20 @@ env:
     
 
 jobs:
-    echo-data:
-        runs-on: ubuntu-22.04
-        steps:
-            - name: echo Github Context
-              run: |
-                echo "Event name: ${{ github.event_name }}"
-                echo "Ref: ${{ github.ref }}"
-                echo "Ref Name: ${{ github.ref_name }}"
-                echo "SHA: ${{ github.sha }}"
-                echo "Actor: ${{ github.repository_owner }}"
-                echo "Workflow: ${{ github.workflow }}"
-                echo "Run ID: ${{ github.run_id }}"
-                echo "Run number: ${{ github.run_number }}"
-            - name: print variable
-              run: echo ${{ vars.MY_APP }}
-    echo-dispatch:
-        runs-on: ubuntu-22.04
-        steps:
-          - name: Dispatch Context
-            run: echo ${{ inputs.debug }}
-    echo-vars:
-        env:
-          MY_JOB_VAR: 'job'
-          MY_OVERWRITTEN_VAR: job
-        runs-on: ubuntu-22.04
-        steps:
-            - name: Variable ENVs
-              env: 
-                APP_SECRET: 'YOUSEF DAWOOD'
-              run: |
-                echo ${{ secrets.APP_SECRET }}
-                echo ${{ env.APP_SECRET }}
-             
+  echo1:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Failing Step
+        run: exit(1)
+      - name: I Will be Skipped
+        if: success()
+        run: echo SKIPPED
+      - name: I Will be Runned
+        if: failure()
+        run: echo SKIPPED
+      - name: not cancelled
+        if: !cancelled()
+        run: 'AYOOOOOOOOOOOOOOOOOOOO'  
+
 
 
