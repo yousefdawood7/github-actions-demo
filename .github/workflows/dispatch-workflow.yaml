@@ -30,7 +30,7 @@ jobs:
         if: failure()
         run: echo SKIPPED
       - name: not cancelled
-        if: !cancelled()
+        if: ${{ !cancelled() }}
         run: 'AYOOOOOOOOOOOOOOOOOOOO'  
 
 
