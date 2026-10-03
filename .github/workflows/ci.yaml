@@ -16,6 +16,9 @@ on:
         default: development
         description: Choose environment that you going to deploy to
 
+env:
+  APP_URL: https://www.yousefdawood.me
+
 jobs:
   os-printer-ubuntu:
     runs-on: ubuntu-22.04
@@ -35,3 +38,10 @@ jobs:
     steps:
         - name: print dispatch env
           run: "echo Current Environment: ${{ inputs.environment}}"
+
+  print-yd7:
+    runs-on: ubuntu-22.04
+
+    steps:
+        - name: print yd7 website
+          run: "echo website ==> ${{ env.APP_URL }} ($APP_URL)"
