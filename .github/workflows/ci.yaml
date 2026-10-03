@@ -16,6 +16,6 @@ jobs:
             echo Hello world
             echo hi from yd7
             echo "i'm working on ${{ runner.os }}"
-            exit 1
+            exit 0
       - name: not going to run
         run: echo "isn't gonna work"
