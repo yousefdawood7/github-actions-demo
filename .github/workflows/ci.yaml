@@ -5,7 +5,16 @@ on:
     branches: 
         - main
         - master
-  workflow_dispatch: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        options:
+          - development
+          - production
+        required: true
+        default: development
+        description: Choose environment that you going to deploy to
 
 jobs:
   os-printer-ubuntu:
@@ -19,3 +28,10 @@ jobs:
             exit 0
       - name: not going to run
         run: echo "isn't gonna work"
+
+  print-environment:
+    runs-on: ubuntu-22.04
+
+    steps:
+        - name: print dispatch env
+          run: "echo Current Environment: ${{ inputs.environment}}"
