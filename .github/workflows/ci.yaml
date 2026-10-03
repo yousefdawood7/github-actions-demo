@@ -12,14 +12,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: printing os
-        run: echo "i'm working on ${{ runner.os }}"
+        run: | 
+            echo Hello world
+            echo hi from yd7
+            echo "i'm working on ${{ runner.os }}"
 
-  os-printer-windows:
-    runs-on: windows-2025
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - name: printing os
-        run: echo "i'm working on ${{ runner.os }}"
-  
