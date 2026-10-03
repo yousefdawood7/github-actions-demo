@@ -16,32 +16,26 @@ on:
         default: development
         description: Choose environment that you going to deploy to
 
-env:
-  APP_URL: https://www.yousefdawood.me
 
-jobs:
-  os-printer-ubuntu:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: printing os
-        run: | 
-            echo Hello world
-            echo hi from yd7
-            echo "i'm working on ${{ runner.os }}"
-            exit 0
-      - name: not going to run
-        run: echo "isn't gonna work"
+jobs: 
+    job-without-environment:
+        runs-on: ubuntu-22.04
 
-  print-environment:
-    runs-on: ubuntu-22.04
+        steps:
+          - name: Print Secret
+            run: echo "print secret var ${{secrets.DATABASE_URL}}"
 
-    steps:
-        - name: print dispatch env
-          run: "echo Current Environment: ${{ inputs.environment}}"
+          - name: Print Client
+            run: echo "print secret var ${{vars.APP_URL}}"
 
-  print-yd7:
-    runs-on: ubuntu-22.04
 
-    steps:
-        - name: print yd7 website
-          run: echo "website ==> ${{ env.APP_URL }} $APP_URL"
+    job-with-environment:
+        runs-on: ubuntu-22.04
+        environment: PRODUCTION
+
+        steps:
+          - name: Print Secret
+            run: echo "print secret var ${{secrets.GOOGLE_CLIENT_ID}}"
+
+          - name: Print Client
+            run: echo "print secret var ${{vars.APP_URL}}"
