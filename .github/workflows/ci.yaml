@@ -31,11 +31,18 @@ jobs:
 
     job-with-environment:
         runs-on: ubuntu-22.04
-        environment: PRODUCTION
 
         steps:
           - name: Print Secret
+                          
             run: echo "print secret var ${{secrets.GOOGLE_CLIENT_ID}}"
 
           - name: Print Client
             run: echo "print secret var ${{vars.APP_URL}}"
+
+    job-list:
+        runs-on: ubuntu-22.04
+
+        steps: 
+         - name: list directory
+           run: ls
