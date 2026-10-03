@@ -44,5 +44,8 @@ jobs:
         runs-on: ubuntu-22.04
 
         steps: 
+         - name: repo checkout
+           uses: actions/checkout@v7
+
          - name: list directory
            run: ls
