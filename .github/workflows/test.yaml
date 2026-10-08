@@ -27,7 +27,7 @@ jobs:
                     }) 
                     }
 
-                    const commitSha = paylod.commits && paylod.commits.length > 0
+                    const commitSha = payload.commits && payload.commits.length > 0
                     
                     github.rest.repos.createCommitComment({
                       ...context.repo,
