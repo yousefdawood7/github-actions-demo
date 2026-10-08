@@ -39,3 +39,10 @@ jobs:
 
           - name: Print Client
             run: echo "print secret var ${{vars.APP_URL}}"
+
+    job-uses-reusable-workflow: 
+       
+       uses: "yousefdawood7/github-actions-demo/.github/workflows/reusable-workflow.yaml@main"
+       with:
+         body: "Yousef Dawood"
+       
