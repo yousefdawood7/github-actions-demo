@@ -48,4 +48,4 @@ jobs:
            uses: actions/checkout@v7
 
          - name: list directory
-           run: ls
+           uses: "./"
