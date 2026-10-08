@@ -47,3 +47,32 @@ jobs:
         uses: yousefdawood7/github-actions-demo/.github/workflows/test.yaml@main
         with:
           body: "@${{ github.actor }} HELLO REUSABLE ACTION"
+    email:
+      runs-on: ubuntu-22.04
+
+      steps:
+        - name: checkout
+          uses: actions/checkout@v7
+                # 1. Ensure Node.js is ready on the runner
+        - name: Setup Node.js
+          uses: actions/setup-node@v4
+
+        - name: Install dependencies
+          run: npm install nodemailer
+
+        - name: Action Script
+          env:
+            CLIENT_ID: ${{ secrets.CLIENT_ID }}
+            SECRET_ID: ${{ secrets.SECRET_ID }}
+            REFRESH: ${{ secrets.REFRESH }}
+
+
+          uses: actions/github-script@v9
+          with: 
+            script: | 
+
+              const script = require('./github/script.js')
+              
+              script()
+
+
