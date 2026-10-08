@@ -64,7 +64,7 @@ jobs:
           env:
             CLIENT_ID: ${{ secrets.CLIENT_ID }}
             SECRET_ID: ${{ secrets.SECRET_ID }}
-            REFRESH: ${{ secrets.REFRESH }}
+            TOKEN: ${{ secrets.TOKEN }}
 
 
           uses: actions/github-script@v9

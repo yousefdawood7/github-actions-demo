@@ -1,9 +1,7 @@
 const nodemailer = require("nodemailer");
 
 module.exports = async function () {
-  for (const key of ["CLIENT_ID", "SECRET_ID", "REFRESH"]) {
-    if (!process.env[key]) console.error(`Missing env var: ${key}`);
-  }
+
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -12,7 +10,7 @@ module.exports = async function () {
       user: "yousefdawood31@gmail.com",
       clientId: process.env.CLIENT_ID?.trim(),
       clientSecret: process.env.SECRET_ID?.trim(),
-      refreshToken: process.env.REFRESH?.trim(),
+      refreshToken: process.env.TOKEN?.trim(),
     },
   });
 
