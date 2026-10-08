@@ -41,4 +41,32 @@ jobs:
        uses: "yousefdawood7/github-actions-demo/.github/workflows/github-app.yaml@main"
        with:
          body: "@${{github.actor}} Test Test Test"
-       
+    
+    email-test-job:
+      runs-on: ubuntu-22.04
+
+
+      steps:
+        - name: Code Checkout
+          uses: actions/checkout@v7
+
+        - name: Setup Node
+          uses: actions/setup-node@v7
+          with:
+            package-manager-cache: true
+            node-version: 24
+
+        - name: Setup Node Mailer
+          run: npm i nodemailer
+
+        - name: Run Custom Script
+          env:
+            GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+            GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_SECRET_ID }}
+            GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          uses: actions/github-script@v9
+
+          with: 
+            script: |
+              const script = require('./.github/scripts/script.js')
+              script()
