@@ -22,7 +22,7 @@ jobs:
                  
                  if(payload.pull_request) {
                     github.rest.issues.createComment( {
-                        issue_number: context.issue.number
+                        issue_number: context.issue.number,
                         body: "Hello @yousefdawood7 How is it going"
                     }) 
                     }
@@ -30,8 +30,8 @@ jobs:
                     const commitSha = paylod.commits && paylod.commits.length > 0
                     
                     github.rest.repos.createCommitComment({
-                      ...context.repo
-                      commit_sha: context.sha
+                      ...context.repo,
+                      commit_sha: context.sha,
                       body,
                     });
 
