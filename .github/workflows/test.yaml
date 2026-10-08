@@ -32,7 +32,7 @@ jobs:
                     github.rest.repos.createCommitComment({
                       ...context.repo,
                       commit_sha: context.sha,
-                      body,
+                        body: "Hello @yousefdawood7 How is it going"
                     });
 
 
