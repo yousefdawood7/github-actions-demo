@@ -7,14 +7,9 @@ on:
         - master
   workflow_dispatch:
     inputs:
-      environment:
-        type: choice
-        options:
-          - development
-          - production
+      input:
+        type: string
         required: true
-        default: development
-        description: Choose environment that you going to deploy to
 
 
 jobs: 
@@ -44,5 +39,5 @@ jobs:
        
        uses: "yousefdawood7/github-actions-demo/.github/workflows/reusable-workflow.yaml@main"
        with:
-         body: "Yousef Dawood"
+         body: ${{ inputs.input }}
        
