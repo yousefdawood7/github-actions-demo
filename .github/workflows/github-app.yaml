@@ -27,10 +27,18 @@ jobs:
                         github.rest.issues.createComment({
                             ...context.repo,
                             issue_number: context.issue.number,    
-                            body: "@yousefdawood7 what a great PR G"
+                            body: `@${context.actor} what a great PR G`
+                        })
+                        return;
+                    }
+                        
+                    if(payload.commits && payload.commits.length > 0)  {
+                        github.rest.repos.createCommitComment({
+                            ...context.repo,
+                            commit_sha: context.sha,
+                            body: `@${context.actor} what a great Commit G`
                         })
                     }
-
 
 
 
