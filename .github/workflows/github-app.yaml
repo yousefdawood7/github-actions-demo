@@ -1,24 +1,25 @@
 name: Github app notifications
 
 on: 
-    push: 
-        branches: [main]
-
-    pull_request: 
-        branches: [main] # base branch
-
-
-
+    workflow_call: 
+        inputs:
+            body:
+                type: string
+                required: true
+                
 permissions: 
     contents: write
     pull-requests: write
+
 jobs: 
     commit-comment: 
         runs-on: ubuntu-22.04
         
         steps:
             - uses: actions/github-script@v9
-              
+              env:
+                  BODY: ${{ inputs.body }}
+
               with:
                 script: | 
                     const payload = context.payload
@@ -27,17 +28,16 @@ jobs:
                         github.rest.issues.createComment({
                             ...context.repo,
                             issue_number: context.issue.number,    
-                            body: `@${context.actor} what a great PR G`
+                            body: process.env.BODY
                         })
                         return;
                     }
                         
                     if(payload.commits && payload.commits.length > 0)  {
-                        console.log("CALLED SUCCESSFULLY")
                         github.rest.repos.createCommitComment({
                             ...context.repo,
                             commit_sha: context.sha,
-                            body: `@${context.actor} what a great Commit G`
+                            body: process.env.BODY
                         })
                     }
 
