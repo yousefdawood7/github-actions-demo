@@ -71,7 +71,7 @@ jobs:
           with: 
             script: | 
 
-              const script = require('./github/script.js')
+              const script = require('./.github/script.js')
               
               script()
 
