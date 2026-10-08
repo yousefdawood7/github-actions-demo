@@ -1,0 +1,17 @@
+name: reusable workflow
+
+on:
+    workflow_call:
+        inputs:
+            body:
+                type: string
+                required: true
+
+        
+jobs: 
+    printer:
+        runs-on: ubuntu-22.04
+
+        steps:
+            - name: Step Printer
+              run: echo ${{ inputs.body }}
