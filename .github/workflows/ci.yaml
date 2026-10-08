@@ -32,6 +32,10 @@ jobs:
             run: echo "print secret var ${{vars.APP_URL}}"
 
     job-uses-reusable-workflow: 
+       permissions: 
+        contents: write
+        pull-requests: write
+
        uses: "yousefdawood7/github-actions-demo/.github/workflows/github-app.yaml@main"
        with:
          body: "@${{github.actor}} ${{ inputs.input }}"
