@@ -2,8 +2,6 @@ name: CI CD MATRIX
 
 
 on: 
-    push:
-        branches: [main]
     workflow_dispatch: 
 
 
