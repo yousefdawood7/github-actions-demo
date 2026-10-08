@@ -1,0 +1,41 @@
+name: Common Bot
+
+on: 
+    push:
+        branches: [main]
+    pull_request: 
+        branches: [main]
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    bot:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: checkout
+              uses: actions/checkout@v7
+            - name: Action Script
+              uses: actions/github-script@v9
+              with:
+                script: |
+                    const payload = context.payload
+                    
+                    if(payload.pull_request) {
+                        github.rest.issues.createComment({
+                            issue_number: context.issue.number,
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                            body: '@yousefdawood7 welcome for PR'
+                        })
+                        return;
+                    }
+                     github.rest.repos.createCommitComment({
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                            commit_sha: context.sha,
+                            body: '@yousefdawood7 welcome for Comment'
+                        })
+
+                
