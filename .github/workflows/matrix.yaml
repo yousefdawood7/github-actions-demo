@@ -16,6 +16,10 @@ jobs:
             matrix:
                 os: ["yousef", "dawood"]
                 version: [1, 2, 3 , 4, 5, 6]
+                exclude:
+                    - os: "yousef"
+                      version: "1"
+
 
         steps:
             - name: print node versions
