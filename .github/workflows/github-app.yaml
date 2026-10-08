@@ -33,6 +33,7 @@ jobs:
                     }
                         
                     if(payload.commits && payload.commits.length > 0)  {
+                        console.log("CALLED SUCCESSFULLY")
                         github.rest.repos.createCommitComment({
                             ...context.repo,
                             commit_sha: context.sha,
