@@ -1,6 +1,8 @@
 name: Simple CI Demo
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       input:
@@ -38,5 +40,5 @@ jobs:
 
        uses: "yousefdawood7/github-actions-demo/.github/workflows/github-app.yaml@main"
        with:
-         body: "@${{github.actor}} ${{ inputs.input }}"
+         body: "@${{github.actor}} Test Test Test"
        
