@@ -1,0 +1,32 @@
+name: Github app notifications
+
+on: 
+    push: 
+        branches: [main]
+
+    pull_request: 
+        branches: [main] # base branch
+
+jobs: 
+    commit-comment: 
+        runs-on: ubuntu-22.04
+        
+        steps:
+            - uses: actions/github-script@v9
+              
+              with:
+                script: | 
+                    const payload = context.payload
+
+                    if(payload.pull_request) {
+                        github.rest.issues.createComment({
+                            ...context.repo,
+                            issue_number: context.issue.number,    
+                            body: "@yousefdawood7 what a great PR G"
+                        })
+                    }
+
+
+
+
+
