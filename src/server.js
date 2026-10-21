@@ -5,7 +5,8 @@ const PORT = process.env.PORT;
 
 async function bootstrap() {
   await dbConnect();
-
+  console.log("DB CONNECTED SUCCESSFULLY");
+  console.log("DB CONNECTED SUCCESSFULLY");
   console.log("DB CONNECTED SUCCESSFULLY");
 
   app.listen(PORT, () => {

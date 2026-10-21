@@ -1,3 +1,4 @@
 node_modules
 .env
 init-container.sh
+./src/logs/*.log

@@ -1,0 +1,26 @@
+services:
+  app:
+    build: 
+      target: dev
+
+    develop:
+      watch:
+        - action: sync
+          path: . # HOST
+          target: /app # CONTAINER
+          ignore:
+            - node_modules
+        - action: rebuild
+          path: package.json
+
+        - action: rebuild
+          path: pnpm-lock.yaml
+
+
+  database:
+    volumes:
+      - app-volume-dev:/data/db
+  
+
+volumes:
+  app-volume-dev:
